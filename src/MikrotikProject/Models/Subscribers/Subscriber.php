@@ -108,10 +108,18 @@ class Subscriber extends ActiveRecordEntity
     }
 
 
-    public static function delete($userData)
+    public static function delete($userData): void
     {
         $subscriber = new Subscriber();
         $subscriber->dropSubscriber($userData);
+    }
+
+
+    public static function searchVoid(): array
+    {
+        $voidSubscriber = new Subscriber();
+
+        return $voidSubscriber->checkVoid();
     }
 
 /*

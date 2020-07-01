@@ -4,7 +4,7 @@
     <div class="sidebarHeader">Меню</div>
     <ul>
         <li><a href="/">Главная страница</a></li>
-        <li><a href="/about-me">Обо мне</a></li>
+        <li><a href="/checkvoid/">Открыть пустые строки в базе данных</a></li>
     </ul>
 </td>
 </tr>

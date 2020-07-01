@@ -16,7 +16,7 @@
  echo  "<br><br>".'Айпи адрес пользователя:' . $subscriber['ip'];
  echo  "<br><br>".'Порт пользователя:' . $subscriber['port']; ?>
 
-  <p><a href="/admin/search/<?php echo $request; ?>/">Проверить трафик этого пользователя</a></p>
+  <p><a href="/admin/search/torch/<?php echo $request; ?>/">Проверить трафик этого пользователя</a></p>
   <p><a href="/admin/search/drop/<?php echo $request; ?>/">Удалить этого абонента</a></p>
 
 <?php include __DIR__ . '/../footer.php'; ?>

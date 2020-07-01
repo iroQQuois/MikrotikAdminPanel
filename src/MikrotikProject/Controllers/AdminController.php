@@ -64,7 +64,8 @@ class AdminController
     }
 
 
-    public function createSubscriber()
+
+    public function deleteSubscriber()
     {
         $urlArray= explode("/", $_SERVER['QUERY_STRING']);
         $url = $urlArray[3];
@@ -79,22 +80,15 @@ class AdminController
         $this->view->renderHtml('successful/drop.php');
     }
 
-/*
-    public function createSubscriber()
+
+    public function checkVoidSubscriber()
     {
-        if (!empty($_POST['newSubscriber']))
+        try {
+            $subscriber = Subscriber::searchVoid();
+            $this->view->renderHtml('subscriberData/voidSubscriber.php', ['voids' => $subscriber]);
+        } catch (InvalidArgumentException $e)
         {
-            try {
-                $subscriber = Subscriber::create($_POST['newSubscriber']);
-                $this->view->renderHtml('successful/create.php');
-
-            } catch (InvalidArgumentException $e)
-            {
-                $this->view->renderHtml('errors/404.php');
-            }
+            $this->view->renderHtml('error/404.php', ['voids' => $subscriber]);
         }
-
-        return;
     }
-*/
 }

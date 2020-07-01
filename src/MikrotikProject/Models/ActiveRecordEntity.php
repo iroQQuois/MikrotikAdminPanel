@@ -118,14 +118,33 @@ abstract class ActiveRecordEntity
         );
     }
 
-/*
-    protected function checkVoid()
+
+    protected function checkVoid(): array
     {
         $db = Db::getInstance();
 
-        $db->query(
-            'INSERT INTO '
-        )
+        $dataList = [];
+
+        $entity = $db->query(
+            'SELECT * FROM `' . static::getTableName() . "` WHERE name = '';"
+        );
+
+        $i = 0;
+        while ($i <= 100)
+        {
+            if ($entity[$i]->id == null)
+            {
+                break;
+            }
+
+            $dataList[$i]['id'] = $entity[$i]->id;
+            $dataList[$i]['address'] = $entity[$i]->address;
+            $i++;
+        }
+
+        return $dataList;
     }
-*/
+
+
+
 }
