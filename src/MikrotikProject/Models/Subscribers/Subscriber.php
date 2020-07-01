@@ -122,19 +122,18 @@ class Subscriber extends ActiveRecordEntity
         return $voidSubscriber->checkVoid();
     }
 
-/*
-    public static function create($userData)
+
+    public static function createSubscriber(array $userData, string $id)
     {
         $newSubscriber = new Subscriber();
-        $newSubscriber->address = $userData['address'];
         $newSubscriber->mask = $userData['mask'];
         $newSubscriber->name = $userData['name'];
         $newSubscriber->fact_address = $userData['fact_address'];
         $newSubscriber->ip = $userData['ip'];
         $newSubscriber->port = $userData['port'];
-        $newSubscriber->save();
+        $newSubscriber->create($id);
 
         return $newSubscriber;
     }
-*/
+
 }

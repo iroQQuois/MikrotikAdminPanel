@@ -31,15 +31,13 @@ class AdminController
     public function search()
     {
         /* Поиск абонента по имени */
-        if (!empty($_POST))
-        {
+        if (!empty($_POST)) {
             try {
                 $subscriber = Subscriber::getSubscriberByName($_POST);
                 $this->view->renderHtml('admin/search.php', ['subscriber' => $subscriber]);
 
-            } catch (InvalidArgumentException $e)
-            {
-               $this->view->renderHtml('errors/404.php');
+            } catch (InvalidArgumentException $e) {
+                $this->view->renderHtml('errors/404.php');
             }
         }
 
@@ -50,7 +48,7 @@ class AdminController
     public function torch()
     {
         /* проверка трафика выбранного пользователя */
-        $urlArray= explode("/", $_SERVER['QUERY_STRING']);
+        $urlArray = explode("/", $_SERVER['QUERY_STRING']);
         $url = $urlArray[3];
 
         try {
@@ -64,16 +62,14 @@ class AdminController
     }
 
 
-
     public function deleteSubscriber()
     {
-        $urlArray= explode("/", $_SERVER['QUERY_STRING']);
+        $urlArray = explode("/", $_SERVER['QUERY_STRING']);
         $url = $urlArray[3];
 
         try {
             $subscriber = Subscriber::delete($url);
-        } catch (InvalidArgumentException $e)
-        {
+        } catch (InvalidArgumentException $e) {
             $this->view->renderHtml('error/404.php');
         }
 
@@ -86,9 +82,29 @@ class AdminController
         try {
             $subscriber = Subscriber::searchVoid();
             $this->view->renderHtml('subscriberData/voidSubscriber.php', ['voids' => $subscriber]);
-        } catch (InvalidArgumentException $e)
-        {
+        } catch (InvalidArgumentException $e) {
             $this->view->renderHtml('error/404.php', ['voids' => $subscriber]);
+        }
+    }
+
+
+    public function createSubscriber()
+    {
+        $this->view->renderHtml('subscriberData/create.php');
+        $urlArray = explode("/", $_SERVER['QUERY_STRING']);
+        $url = $urlArray[2];
+
+
+        if (!empty($_POST['mask'])) {
+            try {
+
+                $newSubscriber = new Subscriber();
+                $newSubscriber::createSubscriber($_POST, $url);
+                $this->view->renderHtml('successful/create.php');
+            } catch (InvalidArgumentException $e)
+            {
+                $this->view->renderHtml('error/404.php', ['voids' => $newSubscriber]);
+            }
         }
     }
 }

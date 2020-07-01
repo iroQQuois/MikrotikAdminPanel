@@ -2,7 +2,6 @@
 
 namespace MikrotikProject\Models;
 
-use http\Exception\InvalidArgumentException;
 use PEAR2\Net\RouterOS;
 use MikrotikProject\Services\Db;
 use MikrotikProject\Services\MikrotikRouter;
@@ -129,6 +128,7 @@ abstract class ActiveRecordEntity
             'SELECT * FROM `' . static::getTableName() . "` WHERE name = '';"
         );
 
+
         $i = 0;
         while ($i <= 100)
         {
@@ -146,5 +146,22 @@ abstract class ActiveRecordEntity
     }
 
 
+    protected function create(string $id)
+    {
+        $db = Db::getInstance();
 
+
+        $entity = $db->query(
+            "UPDATE `" . static::getTableName() . "` SET `mask`=:mask,`fact_address`=:fact_address,`name`=:name,`ip`=:ip,`port`=:port WHERE id = :id",
+            [
+                ':mask' => $this->mask,
+                ':fact_address' => $this->fact_address,
+                ':name' => $this->name,
+                ':ip' => $this->ip,
+                ':port' => $this->port,
+                ':id' => $id,
+                ],
+            static::class
+        );
+    }
 }
