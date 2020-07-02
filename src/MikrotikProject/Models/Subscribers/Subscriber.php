@@ -8,22 +8,40 @@ use MikrotikProject\Exceptions\InvalidArgumentException;
 
 class Subscriber extends ActiveRecordEntity
 {
-    /** @var int */
+    /**
+     * Айди пользователя
+     * @var int
+     */
     protected $id;
 
-    /** @var string */
+    /**
+     * Диапазон ip адресов
+     * @var string
+     */
     protected $address;
 
-    /** @var string */
+    /**
+     * Маска пользователя
+     * @var string
+     */
     protected $mask;
 
-    /** @var string */
+    /**
+     * Расположение пользователя
+     * @var string
+     */
     protected $fact_address;
 
-    /** @var string */
+    /**
+     * Айпи пользователя
+     * @var string
+     */
     protected $ip;
 
-    /** @var int */
+    /**
+     * Порт пользователя
+     * @var int
+     */
     protected $port;
 
 
@@ -38,6 +56,10 @@ class Subscriber extends ActiveRecordEntity
         $this->name = $name;
     }
 
+
+    /** @return array
+     * Функция поиска абонента в бд по имени.
+     */
 
     public static function getSubscriberByName($userData): array
     {
@@ -56,6 +78,11 @@ class Subscriber extends ActiveRecordEntity
         return $subscriber;
     }
 
+
+    /** @return array
+     * Получение данных о трафике через роутер Mikrotik по выбранному пользователю
+     */
+
     public static function getTorchData(string $userData): array
     {
         // Проверки
@@ -72,12 +99,20 @@ class Subscriber extends ActiveRecordEntity
     }
 
 
+    /** @return void
+     * Удаления пользователя из бд
+     */
+
     public static function delete(string $userData): void
     {
         $subscriber = new Subscriber();
         $subscriber->dropSubscriber($userData);
     }
 
+
+    /** @return array
+     * Поиск пустых строк в бд
+     */
 
     public static function searchVoid(): array
     {
@@ -86,6 +121,10 @@ class Subscriber extends ActiveRecordEntity
         return $voidSubscriber->checkVoid();
     }
 
+
+    /** @return void
+     * Создание пользователя в пустой строке с возможнотью их заполнения
+     */
 
     public static function createSubscriber(array $userData, string $id): void
     {
@@ -102,5 +141,4 @@ class Subscriber extends ActiveRecordEntity
 
         $newSubscriber->create($id);
     }
-
 }

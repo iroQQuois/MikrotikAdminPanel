@@ -11,6 +11,13 @@ require_once __DIR__ . '/../../PEAR2_Net_RouterOS-1.0.0b6/src/PEAR2/Autoload.php
 
 abstract class ActiveRecordEntity
 {
+
+    /** Это типо якобы реализация (анти)паттерна Active Record
+     * Но если говорить откровенно, то я и сам не понял, получилось ли у меня это в итоге
+     * или нет
+     */
+
+
     /** @var string */
     protected $name;
 

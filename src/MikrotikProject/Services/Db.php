@@ -12,6 +12,7 @@ class Db
     /** @var \PDO */
     private $pdo;
 
+
     private function __construct()
     {
         $dbOptions = (require __DIR__ . '/../Components/settings_db.php')['db'];
