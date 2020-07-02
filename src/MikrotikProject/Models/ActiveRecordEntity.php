@@ -44,6 +44,7 @@ abstract class ActiveRecordEntity
 
     abstract protected static function getTableName(): string;
 
+
     public function getByName(string $name): array
     {
         $dataList = [];

@@ -23,8 +23,6 @@ class AdminController
     public function main()
     {
         $this->view->renderHtml('admin/admin.php');
-
-        return;
     }
 
 
@@ -35,9 +33,8 @@ class AdminController
             try {
                 $subscriber = Subscriber::getSubscriberByName($_POST);
                 $this->view->renderHtml('admin/search.php', ['subscriber' => $subscriber]);
-
             } catch (InvalidArgumentException $e) {
-                $this->view->renderHtml('errors/404.php');
+                $this->view->renderHtml('admin/search.php', ['error' => $e->getMessage()]);
             }
         }
 
@@ -54,7 +51,7 @@ class AdminController
         try {
             $subscriber = Subscriber::getTorchData($url);
         } catch (InvalidArgumentException $e) {
-            $this->view->renderHtml('error/404.php');
+            $this->view->renderHtml('error/404.php', ['error' => $e->getMessage()]);
         }
 
         $this->view->renderHtml('admin/torch.php', ['subscriberTraffic' => $subscriber]);
@@ -70,7 +67,7 @@ class AdminController
         try {
             $subscriber = Subscriber::delete($url);
         } catch (InvalidArgumentException $e) {
-            $this->view->renderHtml('error/404.php');
+            $this->view->renderHtml('error/404.php', ['error' => $e->getMessage()]);
         }
 
         $this->view->renderHtml('successful/drop.php');
@@ -83,7 +80,7 @@ class AdminController
             $subscriber = Subscriber::searchVoid();
             $this->view->renderHtml('subscriberData/voidSubscriber.php', ['voids' => $subscriber]);
         } catch (InvalidArgumentException $e) {
-            $this->view->renderHtml('error/404.php', ['voids' => $subscriber]);
+            $this->view->renderHtml('error/404.php', ['error' => $e->getMessage()]);
         }
     }
 
@@ -103,8 +100,8 @@ class AdminController
                 $this->view->renderHtml('successful/create.php');
             } catch (InvalidArgumentException $e)
             {
-                $this->view->renderHtml('error/404.php', ['voids' => $newSubscriber]);
-            }
+                $this->view->renderHtml('error/404.php', ['error' => $e->getMessage()]);
+        }
         }
     }
 }

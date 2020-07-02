@@ -1,19 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli:ital,wght@1,300;1,900&display=swap');
+
+* {
+    background-color: #E4DBBF;
+    font-family: 'Muli', sans-serif;
+    text-decoration: none;
+}
+
 .layout {
     width: 100%;
     max-width: 1024px;
     margin: auto;
-    background-color: white;
-    border-collapse: collapse;
+    background-color: #E4DBBF;
 }
 
 .layout tr td {
-    padding: 20px;
+    padding: 30px;
     vertical-align: top;
-    border: solid 1px gray;
+    border: groove 4px black;
 }
 
 .header {
-    font-size: 30px;
+    font-size: 50px;
 }
 
 .footer {
@@ -21,13 +28,46 @@
 }
 
 .sidebarHeader {
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .sidebar ul {
-    padding-left: 20px;
+    padding-left: 30px;
 }
 
 a, a:visited {
-    color: darkgreen;
+    color: #DC5B21;
+    font-size: large;
 }
+
+form.example input[type=text] {
+    padding: 5px;
+    font-size: 15px;
+    border: 1px solid black;
+    float: left;
+    width: 50%;
+    background: #f1f1f1;
+}
+
+form.example button {
+    float: right;
+    width: 30%;
+    padding: 10px;
+    background: #DC5B21;
+    color: black;
+    font-size: 17px;
+    border: 1px solid black;
+    border-left: none;
+    cursor: pointer;
+}
+
+form.example button:hover {
+    background: #0b7dda;
+}
+
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
