@@ -1,12 +1,27 @@
 <?php include __DIR__ . '/../header.php'; ?>
-    <div style="text-align: center;">
-        <h1>Поиск абонента</h1>
+  <div class="wrapper" xmlns:v-bind="http://www.w3.org/1999/xhtml">
         <?php if (!empty($error)): ?>
-            <div style="background-color: red;padding: 5px;margin: 15px"><?= $error ?></div>
+            <p class="error"><?= $error ?></p>
         <?php endif; ?>
-        <form class="example" style="margin:auto;max-width:300px" action="/admin/search/" method="post">
-            <label><input type="text" placeholder="Поиск.." name="name"></label>
-            <button type="submit" value="Найти">Найти</button>
-        </form>
+      <div class="admin__form">
+        <div class="title">
+          <h1>Поиск абонента</h1>
+        </div>
+        <div id="app">
+          <div class="form">
+            <form action="/MikrotikAdminPanel/admin/search/" method="post">
+              <input type="text" id="txt" placeholder="" name="name" v-model="txt">
+              <button id="btn" :class="status"></button>
+            </form>
+          </div>
+        </div>
+        <div class="admin__button">
+          <a href="../">
+            <div class="admin__button-text">
+              <p>Вернуться</p>
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
 <?php include __DIR__ . '/../footer.php'; ?>

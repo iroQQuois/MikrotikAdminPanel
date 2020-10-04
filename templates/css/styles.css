@@ -1,73 +1,165 @@
-@import url('https://fonts.googleapis.com/css2?family=Muli:ital,wght@1,300;1,900&display=swap');
-
-* {
-    background-color: #E4DBBF;
-    font-family: 'Muli', sans-serif;
+html {
+    background: #16161A;
+    color: #FFFFFE;
+    font-family: Helvetica;
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+.wrapper {
+    max-width: 1100px;
+    min-height: 100vh;
+    padding-top: 150px;
+    margin: 0 auto;
+}
+.hide {
+    display: none;
+}
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: #16161A;
+    font-family: Ruda;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 44px;
+    text-align: center;
+    padding-top: 18px;
+    border-bottom: 3px solid #FFFFFE;
+}
+main {
+    /*background: #16161A;*/
+}
+h1 {
+    font-size: 36px;
+}
+h2 {
+    font-size: 26px;
+}
+a {
+    color: #FFFFFE;
     text-decoration: none;
 }
-
-.layout {
-    width: 100%;
-    max-width: 1024px;
-    margin: auto;
-    background-color: #E4DBBF;
+input {
+    background: #16161A;
+    color: #FFFFFE;
+    width: 300px;
+    height: 30px;
+    font-size: 24px;
+    padding: 2px;
+    border: unset;
+    border-bottom: 1px solid #FFFFFE;
+    outline: none;
+    resize: none;
 }
 
-.layout tr td {
-    padding: 30px;
-    vertical-align: top;
-    border: groove 4px black;
-}
-
-.header {
-    font-size: 50px;
-}
-
-.footer {
+p.error {
+    color: #B62C2C;
+    font-size: 26px;
     text-align: center;
 }
 
-.sidebarHeader {
-    font-size: 30px;
+.title {
+    font-family: Helvetica;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 41px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+.form {
+    padding-top: 30px;
+    text-align: center;
 }
 
-.sidebar ul {
-    padding-left: 30px;
+.main__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.main__button {
+    width: 450px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 37px;
+    letter-spacing: 0em;
+    text-align: center;
+    border: 3px solid #FFFFFE;
+}
+.main__button-text {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
 }
 
-a, a:visited {
-    color: #DC5B21;
-    font-size: large;
+.admin__form {
+    position: relative;
+    margin-top: 197px;
 }
+.admin__button {
+    width: 193px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    /*line-height: 207px;*/ /* на память, что я идиот */
+    letter-spacing: 0em;
+    text-align: center;
+    border: 3px solid #FFFFFE;
 
-form.example input[type=text] {
-    padding: 5px;
-    font-size: 15px;
-    border: 1px solid black;
-    float: left;
-    width: 50%;
-    background: #f1f1f1;
+    margin-top: 45px;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-form.example button {
-    float: right;
-    width: 30%;
-    padding: 10px;
-    background: #DC5B21;
-    color: black;
-    font-size: 17px;
-    border: 1px solid black;
-    border-left: none;
+.admin__input-button {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    margin-left: -25px;
+    background-image: url("../img/search.svg");
     cursor: pointer;
+    border: none;
+    background-color: #16161A;
 }
 
-form.example button:hover {
-    background: #0b7dda;
-}
-
-form.example::after {
-    content: "";
-    clear: both;
+/*.cell {*/
+/*    float: left; !*Задаем обтекание*!*/
+/*}*/
+.wrap {
     display: table;
+}
+.search__cell-1 {
+    display: table-cell;
+    width: 534px;
+}
+.search__cell-2 {
+    display: table-cell;
+    width: 666px;
+}
+.search__button-1 {
+    margin-top: 45px;
+}
+.search__button-2 {
+    margin-top: 30px;
+}
+.search__info {
+    margin-bottom: 30px;
 }
 

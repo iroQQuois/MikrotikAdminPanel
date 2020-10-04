@@ -1,13 +1,14 @@
 <?php include __DIR__ . '/../header.php'; ?>
-Пустые поля: <br><br>
-<?php foreach ($voids as $void): ?>
-<form>
-    <?php $request = $void['id'] ?>
-    <button formaction="/checkvoid/form/<?php echo $void['id'] ?>/">Создать </button>
-    <?php echo 'id строки ' . $void['id'] . "<br>" ?>
-    <?php echo 'диапазон ip адрессов ' . $void['address'] . "<br><hr>" ?>
-</form>
-<?php endforeach; ?>
-
-
+<div class="wrapper">
+  <?php foreach ($voids as $void): ?>
+  <div class="form">
+    <form>
+        <?php $request = $void['id'] ?>
+        <button formaction="/MikrotikAdminPanel/checkvoid/form/<?php echo $void['id'] ?>/">Создать </button>
+        <?php echo 'id строки ' . $void['id'] . "<br>" ?>
+        <?php echo 'диапазон ip адрессов ' . $void['address'] . "<br><hr>" ?>
+    </form>
+  </div>
+  <?php endforeach; ?>
+</div>
 <?php include __DIR__ . '/../footer.php'; ?>

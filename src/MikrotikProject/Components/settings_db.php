@@ -6,6 +6,6 @@ return [
         'host' => 'localhost',
         'dbname' => 'mikrotikdb',
         'user' => 'root',
-        'password' => 'password'
+        'password' => 'root1234'
     ]
 ];
