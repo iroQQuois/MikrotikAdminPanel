@@ -3,8 +3,11 @@
 use MikrotikProject\Exceptions\DbException;
 use MikrotikProject\Exceptions\NotFoundException;
 use MikrotikProject\Views\View;
-require_once __DIR__ . '/src/PEAR2_Net_RouterOS-1.0.0b6/src/PEAR2/Autoload.php';
-
+spl_autoload_register(function ($className)
+{
+    $class = './src/'.str_replace('\\', '/', $className).'.php';
+    require_once $class;
+});
 /* Фронтконтроллер */
 
 try
