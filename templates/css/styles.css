@@ -17,7 +17,7 @@ html {
     display: none;
 }
 header {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -31,6 +31,7 @@ header {
     text-align: center;
     padding-top: 18px;
     border-bottom: 3px solid #FFFFFE;
+    z-index: 99;
 }
 main {
     /*background: #16161A;*/
@@ -39,7 +40,7 @@ h1 {
     font-size: 36px;
 }
 h2 {
-    font-size: 26px;
+    font-size: 26pxq;
 }
 a {
     color: #FFFFFE;
@@ -163,3 +164,22 @@ p.error {
     margin-bottom: 30px;
 }
 
+.checkvoid__form {
+    float: left;
+    margin-bottom: 30px;
+    padding: 4px;
+    border-top: 1px solid #939393;
+    border-bottom: 1px solid #939393;
+}
+.checkvoid__text {
+    padding: 5px;
+}
+.checkvoid__button {
+    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.checkvoid__button-back {
+    margin-top: 0;
+    margin-right: 0;
+}
