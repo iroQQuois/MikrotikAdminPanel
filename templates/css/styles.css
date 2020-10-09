@@ -16,6 +16,9 @@ html {
 .hide {
     display: none;
 }
+.line {
+    display: flex;
+}
 header {
     position: fixed;
     top: 0;
@@ -40,7 +43,7 @@ h1 {
     font-size: 36px;
 }
 h2 {
-    font-size: 26pxq;
+    font-size: 26px;
 }
 a {
     color: #FFFFFE;
@@ -58,6 +61,11 @@ input {
     outline: none;
     resize: none;
 }
+button {
+    color: #FFFFFE;
+    background: none;
+    border: none;
+}
 
 p.error {
     color: #B62C2C;
@@ -65,6 +73,16 @@ p.error {
     text-align: center;
 }
 
+.clicked {
+    color: #FFFFFE;
+    border: 3px solid #FFFFFE;
+}
+.no-clicked {
+    color: #939393;
+    border: 3px solid #939393;
+    pointer-events: none; /* делаем элемент неактивным для взаимодействия */
+    cursor: default;
+}
 .title {
     font-family: Helvetica;
     font-size: 36px;
@@ -140,9 +158,6 @@ p.error {
     background-color: #16161A;
 }
 
-/*.cell {*/
-/*    float: left; !*Задаем обтекание*!*/
-/*}*/
 .wrap {
     display: table;
 }
@@ -165,6 +180,7 @@ p.error {
 }
 
 .checkvoid__form {
+    width: 666px;
     float: left;
     margin-bottom: 30px;
     padding: 4px;
@@ -181,5 +197,28 @@ p.error {
 }
 .checkvoid__button-back {
     margin-top: 0;
+    margin-right: 0;
+}
+.checkvoid__cell-2 {
+    position: sticky;
+    top: 100px;
+    z-index: 99;
+}
+
+.create__form input {
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.create__cell-1 {
+    /*float: left;*/
+    display: table-cell;
+    width: 666px;
+}
+.create__cell-2 {
+    display: table-cell;
+    width: 434px;
+}
+.create__button {
     margin-right: 0;
 }
