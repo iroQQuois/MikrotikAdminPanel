@@ -8,5 +8,5 @@
 </head>
 <body>
   <header>
-      <h1>Mikrotik Admin Panel</h1>
+      <h1><a href="http://localhost/MikrotikAdminPanel/">Mikrotik Admin Panel</a></h1>
   </header>
